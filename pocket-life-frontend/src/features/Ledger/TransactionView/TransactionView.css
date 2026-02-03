@@ -1,0 +1,323 @@
+/* [0. 📍 구글 폰트 불러오기 ] */
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+/* [1. 전체 레이아웃 구성] */
+.transaction-view-container {
+  display: flex;
+  gap: 20px;
+  height: auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-family: "Jua", sans-serif;
+  /* 📍 전체 컨테이너를 10% 정도 넓혀 리스트 공간 확보 */
+  width: 100%;
+  max-width: 1300px;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.left-transaction-panel {
+  /* 📍 내부 박스가 가로로 더 넓어지도록 비중을 3.2로 조정 */
+  flex: 3.2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.right-input-panel {
+  /* 📍 사이드바는 원래의 적정 너비로 복구 */
+  flex: 0.85;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 280px;
+  max-width: 300px;
+  margin-left: auto;
+}
+
+/* [2. 상단 컨트롤 바 스타일 - 원상복구] */
+.table-top-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.top-controls-left-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.custom-dropdown-button {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  font-size: 13px;
+  color: #2d3748;
+  outline: none;
+  cursor: pointer;
+  font-family: "Jua", sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 100px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  background: #f0f0f0;
+  padding: 5px;
+  border-radius: 20px;
+}
+.filter-btn {
+  border: none;
+  background: none;
+  padding: 6px 18px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #777;
+  font-family: "Jua", sans-serif;
+}
+.filter-btn.active {
+  background: white;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* [3. 리스트 테이블 디자인 - 가로만 10% 넓히고 세로 고정/드래그 제거] */
+.transaction-list-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  /* 📍 겉 박스 비중에 맞춰 100% 꽉 채움 */
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+
+  /* 📍 2026-01-26 15:15: 높이 연장이 다른 영역에 영향을 주어 다시 545px로 원복함. */
+  min-height: 573px;
+  max-height: 573px;
+  overflow: hidden; /* 📍 불필요하게 생겼던 드래그바 삭제 */
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+.transaction-table th {
+  padding: 10px 10px;
+  border-bottom: 2px solid #f0f0f0;
+  color: #777;
+  font-size: 14px;
+}
+.transaction-table td.td-narrow {
+  padding: 8px 5px;
+  border-bottom: 1px solid #f9f9f9;
+  font-size: 14px;
+  vertical-align: middle;
+  word-break: break-all;
+  white-space: nowrap;
+}
+
+/* [4. 라운드 처리된 네모 버튼 스타일] */
+.action-button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.pill-btn {
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  font-family: "Jua", sans-serif;
+}
+.edit-pill {
+  background-color: #34a853;
+}
+.delete-pill {
+  background-color: #ff0000;
+}
+
+/* [5. 텍스트 및 카테고리 뱃지] */
+.category-badge {
+  background: #eeeeee;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: #555;
+  display: inline-block;
+  white-space: nowrap;
+}
+.plus-color {
+  color: #34a853;
+}
+.minus-color {
+  color: #ff0000;
+}
+.text-bold {
+  font-weight: bold;
+}
+
+/* [6. 오른쪽 사이드 카드 및 입력폼 - 원상복구] */
+.side-card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+.card-header-title {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #333;
+}
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* 입력란 간격 조정 */
+}
+.input-form input {
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Jua", sans-serif;
+}
+.submit-save-btn {
+  width: 100%;
+  padding: 14px;
+  background: #b2b2ff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Jua", sans-serif;
+}
+
+/* [7. 요약 정보 및 페이징 - 원상복구] */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  font-size: 14px;
+}
+.total-row {
+  font-size: 16px;
+  color: #333;
+}
+.pagination-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 35px;
+  padding-top: 5px;
+  visibility: visible;
+}
+.page-num-btn {
+  border: none;
+  background: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #888;
+  font-size: 13px;
+  font-family: "Jua", sans-serif;
+}
+.page-num-btn.active {
+  background-color: #b2b2ff;
+  color: white;
+  font-weight: bold;
+}
+
+/* [8. DatePicker 커스텀 스타일] */
+.custom-date-input-wrapper {
+  cursor: pointer;
+  width: 101%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px;
+  color: #2d3748;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.date-nav-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #6f76a1;
+  cursor: pointer;
+  padding: 2px 6px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.date-display-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  flex: 1;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.calendar-icon {
+  flex-shrink: 0;
+}
+
+.date-text {
+  white-space: nowrap;
+  display: inline-block;
+  width: 145px;
+  text-align: center;
+}
+
+.datepicker-custom-header {
+  position: relative;
+  text-align: center;
+}
+
+.cancel-btn {
+  background-color: #bbb !important;
+  margin-top: 5px;
+}
